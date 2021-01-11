@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import { Op } from 'sequelize';
 import Category from '../models/Category';
+import Image from '../models/Image';
 
 class CategoryController {
   async store(req, res) {
@@ -23,7 +24,7 @@ class CategoryController {
     const category = await Category.findByPk(category_id);
 
     if (!category) {
-      return res.status(400).json({ error: 'Category not found' });
+      return res.status(401).json({ error: 'Category not found' });
     }
 
     const { id, name } = await category.update(req.body);
@@ -40,7 +41,7 @@ class CategoryController {
     const category = await Category.findByPk(category_id);
 
     if (!category) {
-      return res.status(400).json({ error: 'Category not found' });
+      return res.status(401).json({ error: 'Category not found' });
     }
 
     await category.destroy();
@@ -50,7 +51,15 @@ class CategoryController {
 
   async index(req, res) {
     const total = await Category.count();
-    const categories = await Category.findAll();
+    const categories = await Category.findAll({
+      include: [
+        {
+          model: Image,
+          as: 'image',
+          attributes: ['id', 'name', 'url'],
+        },
+      ],
+    });
 
     return res.json({ categories, total });
   }
@@ -67,6 +76,13 @@ class CategoryController {
       limit: 5,
       offset: (page - 1) * 5,
       order: [['name', 'ASC']],
+      include: [
+        {
+          model: Image,
+          as: 'image',
+          attributes: ['id', 'name', 'url'],
+        },
+      ],
     });
 
     return res.json({ categories, total });

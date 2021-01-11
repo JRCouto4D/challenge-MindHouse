@@ -1,14 +1,15 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Category extends Model {
+class Product extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING,
+        description: Sequelize.STRING,
+        price: Sequelize.DOUBLE,
+        image_id: Sequelize.INTEGER,
       },
       {
         sequelize,
-        tableName: 'categories',
       }
     );
 
@@ -17,7 +18,11 @@ class Category extends Model {
 
   static associate(models) {
     this.belongsTo(models.Image, { foreignKey: 'image_id', as: 'image' });
+    this.belongsTo(models.Category, {
+      foreignKey: 'category_id',
+      as: 'category',
+    });
   }
 }
 
-export default Category;
+export default Product;
