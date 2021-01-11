@@ -8,7 +8,7 @@ class Image extends Model {
         url: {
           type: Sequelize.VIRTUAL,
           get() {
-            return `${process.env.APP_URL}/images/${this.name}`;
+            return `${process.env.APP_URL}/images/${this.name}.png`;
           },
         },
       },
