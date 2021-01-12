@@ -9,6 +9,7 @@ import Routes from './routes';
 
 function src() {
   YellowBox.ignoreWarnings(['VirtualizedLists should never be nested']);
+  YellowBox.ignoreWarnings(['YellowBox has be']);
 
   return (
     <NavigationContainer>

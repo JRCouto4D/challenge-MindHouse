@@ -1,6 +1,7 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { View, Text, ActivityIndicator, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { ActivityIndicator } from 'react-native';
 
 import banner from '../../assets/banner1.png';
 
@@ -36,18 +37,24 @@ const Main = () => {
 
   const loadCategories = useCallback(() => {
     async function listCategories() {
-      setLoading(true);
+      try {
+        setLoading(true);
 
-      const response = await api.get('/categories/search', {
-        params: {
-          page: 1,
-          name: search,
-        },
-      });
+        const response = await api.get('/categories/search', {
+          params: {
+            page: 1,
+            name: search,
+          },
+        });
 
-      setCategories(response.data.categories);
+        setCategories(response.data.categories);
 
-      setLoading(false);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        setCategories([]);
+        Alert.alert('Algo deu errado. Tente novamente mais tarde');
+      }
     }
 
     listCategories();
@@ -104,6 +111,22 @@ const Main = () => {
       </CategoriesContainer>
       {loading ? (
         <ActivityIndicator size={20} color="#666" style={{ marginTop: 20 }} />
+      ) : categories.length <= 0 ? (
+        <View
+          style={{
+            alignSelf: 'center',
+            marginTop: 30,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}
+          >
+            Sem registros
+          </Text>
+        </View>
       ) : (
         <Content>
           <ListCategories
