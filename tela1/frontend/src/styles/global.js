@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
   body {
     background: #eee;
-    color: #fff;
+    color: #333;
     -webkit-font-smooth: antialiased;
     font-family: 'Roboto Slab', serif;
   }

@@ -1,16 +1,16 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import GlobalStyles from './styles/global'
 
-import Tela1 from './pages/Tela1'
-// import Tela2 from './pages/Tela2'
+import Routes from './routes'
 
 function App() {
   return (
-    <>
-      <Tela1 />
+    <BrowserRouter>
+      <Routes />
       <GlobalStyles />
-    </>
+    </BrowserRouter>
   )
 }
 
