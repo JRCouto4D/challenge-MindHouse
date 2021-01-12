@@ -109,14 +109,20 @@ class ProductController {
   }
 
   async show(req, res) {
-    const { page = 1, description = '' } = req.query;
+    const { page = 1, description = '', category_id = 9 } = req.query;
 
     const total = await Product.count({
-      where: { description: { [Op.iLike]: `${description}%` } },
+      where: {
+        description: { [Op.iLike]: `${description}%`},
+        category_id
+      },
     });
 
     const products = await Product.findAll({
-      where: { description: { [Op.iLike]: `${description}%` } },
+      where: {
+        description: { [Op.iLike]: `${description}%` },
+        category_id
+     },
       limit: 5,
       offset: (page - 1) * 5,
       order: [['description', 'ASC']],
