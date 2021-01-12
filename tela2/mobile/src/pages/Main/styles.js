@@ -5,8 +5,8 @@ export const Container = styled.View``;
 export const Header = styled.View`
   background: #f8dc46;
   width: 100%;
-  height: 110px;
-  padding: 15px;
+  height: 140px;
+  padding: 50px 15px 15px;
 `;
 
 export const HeaderBoxTop = styled.View`

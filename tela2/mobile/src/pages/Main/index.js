@@ -7,7 +7,7 @@ import banner from '../../assets/banner1.png';
 
 import api from '../../services/api';
 
-import ListItemCategories from '../components/ListItemCategories';
+import ListItemCategories from '../../components/ListItemCategory';
 
 import {
   Container,

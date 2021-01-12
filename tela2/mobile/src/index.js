@@ -1,6 +1,8 @@
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 import 'react-native-gesture-handler';
 import React from 'react';
-import { YellowBox } from 'react-native';
+import { YellowBox, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Routes from './routes';
@@ -13,6 +15,7 @@ function src() {
 
   return (
     <NavigationContainer>
+      <StatusBar translucent backgroundColor="transparent" />
       <Routes />
     </NavigationContainer>
   );
