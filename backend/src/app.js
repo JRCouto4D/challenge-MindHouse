@@ -1,7 +1,8 @@
 import 'dotenv/config';
 
 import express from 'express';
-import path from 'path';
+import cors from 'cors';
+import { resolve } from 'path';
 import Youch from 'youch';
 import * as Sentry from '@sentry/node';
 import sentryConfig from './config/sentry';
@@ -23,11 +24,9 @@ class App {
   }
 
   middlewares() {
+    this.server.use(cors());
     this.server.use(express.json());
-    this.server.use(
-      '/images',
-      express.static(path.resolve(__dirname, '..', 'tmp'))
-    );
+    this.server.use('/images', express.static(resolve(__dirname, '..', 'tmp')));
   }
 
   routes() {

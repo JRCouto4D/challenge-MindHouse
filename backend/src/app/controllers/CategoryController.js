@@ -73,8 +73,8 @@ class CategoryController {
 
     const categories = await Category.findAll({
       where: { name: { [Op.iLike]: `${name}%` } },
-      limit: 5,
-      offset: (page - 1) * 5,
+      limit: 8,
+      offset: (page - 1) * 8,
       order: [['name', 'ASC']],
       include: [
         {
