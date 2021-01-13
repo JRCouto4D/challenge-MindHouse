@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { formatPrice } from '../../utils/format';
 
@@ -31,7 +30,3 @@ const ListItemProduct = ({ product }) => (
 );
 
 export default ListItemProduct;
-
-ListItemProduct.propTypes = {
-  product: PropTypes.shape(),
-};

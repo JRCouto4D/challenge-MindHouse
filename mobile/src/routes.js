@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import PropsTypes from 'prop-types';
 import { View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -122,7 +121,3 @@ const Routes = () => {
 };
 
 export default Routes;
-
-Routes.propTypes = {
-  color: PropsTypes.string(),
-};
