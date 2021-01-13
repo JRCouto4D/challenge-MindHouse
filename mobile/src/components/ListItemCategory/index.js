@@ -1,5 +1,4 @@
 import React from 'react';
-import PropsTypes from 'prop-types';
 import { Container, BoxImage, Image, CategoryName } from './styles';
 
 const ListItemCategories = ({ category }) => {
@@ -33,7 +32,3 @@ const ListItemCategories = ({ category }) => {
 };
 
 export default ListItemCategories;
-
-ListItemCategories.propTypes = {
-  category: PropsTypes.shape(),
-};

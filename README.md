@@ -60,6 +60,65 @@ Pronto o backend já está pronto para o uso, agora vamos para a parte web da ap
 - prettier
 - nodemon
 
+
+## WEB
+
+Na raiz da pasta frontend estão os dois projetos de tela, replicadas do mobile para se adaptar a web. Acesse a pasta tela1 e tela2 e rode os comandos:
+
+```
+  yarn
+```
+Agora para iniciar a aplicação WEB basta rodar:
+
+```
+  yarn start
+```
+
+### tecnologias aplicadas
+
+- ReactJS
+- eslint
+- prettier
+- styled-components
+- prop-types
+
+
+## Mobile
+
+Acesse a pasta mobile e rode o seguinte comando para instalar as dependências
+
+```
+  yarn
+```
+Agora para instalar os pods ( Apenas para IOS ) rode
+
+```
+cd ios && pod install && cd ..
+```
+
+Agora basta iniciar a aplicação 
+
+```
+react-native run-ios
+```
+
+### Tela capturada
+
+
+<h1 align="center">
+  <img alt="challenge" title="challenge" src="assets/mobile2.gif" width="300px" />
+</h1>
+ 
+
+### tecnologias aplicadas
+
+- React Native
+- eslint
+- prettier
+- styled-components
+- prop-types
+
+
 ## 📝 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
